@@ -4,11 +4,15 @@ import { Inertia } from "@inertiajs/inertia";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 //import { Head } from '@inertiajs/vue3';
 import { Head } from "@inertiajs/inertia-vue3";
+import ValidationErrors from "@/Components/ValidationErrors.vue";
 
 const form = reactive({
     name: null,
     memo: null,
     price: null,
+});
+defineProps({
+    errors: Object,
 });
 
 const storeItem = () => {
@@ -31,6 +35,7 @@ const storeItem = () => {
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
                         <section class="text-gray-600 body-font relative">
+                            <ValidationErrors :errors="errors" />
                             <form @submit.prevent="storeItem">
                                 <div class="container px-5 py-10 mx-auto">
                                     <div class="lg:w-1/2 md:w-2/3 mx-auto">
