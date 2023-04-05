@@ -4,4 +4,12 @@ const nl2br = (str) => {
     return res;
 };
 
-export { nl2br };
+const getToday = () => {
+    const date_obj = new Date();
+    const yyyy = date_obj.getFullYear();
+    const mm = ("0" + date_obj.getMonth()).slice(-2);
+    const dd = ("0" + date_obj.getDate()).slice(-2);
+    return yyyy + "-" + mm + "-" + dd;
+};
+
+export { nl2br, getToday };
